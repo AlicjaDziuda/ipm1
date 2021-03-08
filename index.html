@@ -5,10 +5,20 @@
 <h1>The input pattern attribute</h1>
 
 <form action="/action_page.php">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Email"><br><br>
+  <input type="submit">
+</form>
+
+
+<form action="/action_page.php">
   <label for="country_code">Country code:</label>
   <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code"><br><br>
   <input type="submit">
 </form>
+
+
+
 
 <p><strong>Note:</strong> The pattern attribute of the input tag is not supported in Safari 10 (or earlier).</p>
 
