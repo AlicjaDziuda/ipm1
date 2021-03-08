@@ -40,8 +40,13 @@
 </form>
 
 <form action="/action_page.php">
+ <label for="url">8. sciezka do pliku:</label>
+  <input type="url" name="url" id="url" placeholder="/etc/passwd" pattern="[A-Z]{1}:\[windows, winnt, win, dos, msdos]\">
+</form>
+
+<form action="/action_page.php">
  <label for="url">9. IPv6:</label>
-  <input type="url" name="url" id="url" placeholder="2001:0db8:85a3:0000:0000:8a2e:0370:7334" pattern="((^|:)([0-9a-fA-F]{0,4})){1,8}$">
+ <input id="url" type="text" placeholder="2001:0db8:0:0:0:0:1428:57ab" pattern="^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$"><br><br>
 </form>
 
 
