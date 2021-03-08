@@ -17,6 +17,12 @@
 </form>
 
 <form action="/action_page.php">
+  <label for="nip">3. NIP number:</label>
+  <input type="text" id="nip" name="nip" placeholder="965-43-43-434" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3}" title="Three letter country code"><br><br>
+  <input type="submit">
+</form>
+
+<form action="/action_page.php">
   <label for="website">Homepage:</label>
   <input type="url" id="website" name="website"
   pattern="https?://.+" title="Include http://">
