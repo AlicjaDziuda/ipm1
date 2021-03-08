@@ -10,10 +10,9 @@
   <input type="submit">
 </form>
 
-
 <form action="/action_page.php">
   <label for="country_code">Country code:</label>
-  <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code"><br><br>
+  <input type="text" id="country_code" name="country_code" placeholder="" pattern="[A-Za-z]{3}" title="Three letter country code"><br><br>
   <input type="submit">
 </form>
 
@@ -21,6 +20,12 @@
   <label for="website">Homepage:</label>
   <input type="url" id="website" name="website"
   pattern="https?://.+" title="Include http://">
+  <input type="submit">
+</form>
+
+<form action="/action_page.php">
+  <label for="phone">10. Phone number:</label>
+	<input type="tel" id="phone" name="phone" placeholder="434-426-434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
   <input type="submit">
 </form>
 
