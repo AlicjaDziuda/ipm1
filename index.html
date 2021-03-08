@@ -6,7 +6,7 @@
 
 <form action="/action_page.php">
   <label for="email">Email:</label>
-  <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Email"><br><br>
+  <input type="email" id="email" name="email" placeholder="ala98_98@wp.pl" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
   <input type="submit">
 </form>
 
@@ -17,7 +17,12 @@
   <input type="submit">
 </form>
 
-
+<form action="/action_page.php">
+  <label for="website">Homepage:</label>
+  <input type="url" id="website" name="website"
+  pattern="https?://.+" title="Include http://">
+  <input type="submit">
+</form>
 
 
 <p><strong>Note:</strong> The pattern attribute of the input tag is not supported in Safari 10 (or earlier).</p>
