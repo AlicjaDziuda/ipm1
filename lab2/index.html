@@ -4,6 +4,56 @@
 
 <h1>The input pattern attribute</h1>
 
+<form action="/action_page.php">
+  <label for="email">1. Email:</label>
+  <input type="email" id="email" name="email" placeholder="ala98_98@wp.pl" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+</form>
+
+<form action="/action_page.php">
+  <label for="country_code">2. ZIP code:</label>
+  <input type="text" id="country_code" name="country_code" placeholder="96-434" pattern="[0-9]{2}-[0-9]{3}" title="Three letter country code"><br><br>
+</form>
+
+<form action="/action_page.php">
+  <label for="nip">3. NIP number:</label>
+  <input type="text" id="nip" name="nip" placeholder="965-43-43-434" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3}" title="Three letter country code"><br><br>
+</form>
+
+<form action="/action_page.php">
+  <label for="id">4. ID number:</label>
+  <input type="text" id="id" name="id" placeholder="DFR 435643" pattern="[A-Za-z]{3} [0-9]{6}" title="Three letter country code"><br><br>
+</form>
+
+<form action="/action_page.php">
+  <label for="ipv4">5. Ipv4:</label>
+  <input type="text" minlength="7" maxlength="15" size="15" placeholder="172.34.254.2" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$">
+</form>
+
+<form action="/action_page.php">
+ <label for="url">6. WWW:</label>
+  <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30">
+</form>
+
+<form action="/action_page.php">
+ <label for="url">7a. sciezka:</label>
+  <input type="url" name="url" id="url" placeholder="C:\windows\temp" pattern="[A-Z]{1}:\[windows, winnt, win, dos, msdos]\">
+</form>
+
+<form action="/action_page.php">
+ <label for="url">8. sciezka do pliku:</label>
+  <input type="url" name="url" id="url" placeholder="/etc/passwd" pattern="[A-Za-z]{1}:\[windows, winnt, win, dos, msdos]\">
+</form>
+
+<form action="/action_page.php">
+ <label for="url">9. IPv6:</label>
+ <input id="url" type="text" placeholder="2001:0db8:0:0:0:0:1428:57ab" pattern="^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$"><br><br>
+</form>
+
+
+<form action="/action_page.php">
+  <label for="phone">10. Phone number:</label>
+	<input type="tel" id="phone" name="phone" placeholder="434-426-434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+</form>
 
 
 </body>
