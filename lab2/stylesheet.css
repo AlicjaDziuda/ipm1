@@ -1,8 +1,8 @@
-input:valid {
+.task1:valid {
    border-style: solid;
   border-color: green;
 }
-input:invalid {
+.task1:invalid {
    border-style: solid;
   border-color: red;
 }
