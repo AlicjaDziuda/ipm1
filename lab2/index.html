@@ -31,12 +31,12 @@
 
 <form action="/action_page.php">
  <label for="url">6. WWW:</label>
-  <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30">
+  <input type="url" name="url" id="url" placeholder="https://example.com" pattern="http[s]://((www.)?)([a-zA-z0-9\-_]+)(.com)" size="30">
 </form>
 
 <form action="/action_page.php">
  <label for="url">7a. sciezka:</label>
-  <input type="url" name="url" id="url" placeholder="C:\windows\temp" pattern="[A-Z]{1}:\[windows, winnt, win, dos, msdos]\">
+  <input type="url" name="url" id="url" placeholder="C:\windows\temp" pattern="[A-Z]{1}:\[windows, winnt, win, dos, msdos]\\?[a-z]*">
 </form>
 
 <form action="/action_page.php">
