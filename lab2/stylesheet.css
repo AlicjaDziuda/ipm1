@@ -1,8 +1,8 @@
-.task1:valid {
+.task1,.task2:valid {
    border-style: solid;
   border-color: green;
 }
-.task1:invalid {
+.task1,.task2:invalid {
    border-style: solid;
   border-color: red;
 }

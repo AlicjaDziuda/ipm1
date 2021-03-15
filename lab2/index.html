@@ -67,13 +67,27 @@
 
 <input type="date" id="start" name="trip-start"
        value="2021-03-15"
-       min="1900-01-01" max="2021-12-31"><br><br>
+       min="1900-01-01" max="2021-12-31" class="task2"><br><br>
 	   
 <label for="start">Choose date from calendar (only this week):</label> 
 
 <input type="date" id="start" name="week"
        value="2021-03-15"
-       min="2021-03-15" max="2021-03-19">
+       min="2021-03-15" max="2021-03-19" class="task2"><br><br>
+	   
+<label for="appt">Choose a time for your meeting (24 h):</label>
+
+<input type="time" id="polishtime" name="polishtime"
+       min="00:00" max="23:59" class="task2" required> <br><br>
+
+<label for="appt">Choose a time for your meeting (english time - 12 h):</label>
+<input type="time" id="englishtime" name="englishtime"
+       min="00:00" max="12:59" class="task2" required>
+	   <select>
+	   <option> AM </option>
+	   <option> PM </option>
+	   </select>
+
 
 </body>
 </html>
