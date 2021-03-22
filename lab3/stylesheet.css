@@ -8,12 +8,14 @@ html, body {
   background-color: green;
   width: 80%;
   height: 100%;
-
-
 }
 #title {
 	background-color:black;
 	color:white;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+	text-align: left;
 }
 
 #platform2 {
@@ -22,5 +24,4 @@ html, body {
   width: 20%;
   height: 100%;
   background-color: red;
-
 }

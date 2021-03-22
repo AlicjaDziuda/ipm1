@@ -11,9 +11,23 @@
 </div>
 
 <div id="platform2"> 
-ffffff
+<canvas id="canvas"> </canvas><br>
+<button type="button" onclick="draw()">Generuj klocek</button>
 </div>
+<script>
 
+
+
+function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+
+    ctx.fillRect(25,25,100,100);
+    ctx.strokeRect(50,50,50,50);
+  }
+}
+</script> 
 
 </body>
 </html>
