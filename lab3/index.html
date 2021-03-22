@@ -3,29 +3,108 @@
 <head>
 <link rel="stylesheet" href="stylesheet.css">
 
-
 <div id="platform"> 
-	<div id="title">
-		<h6>To jest platforma</h6>
-	</div>
+<canvas id="canvas" width=400 height=300> </canvas><br>
+<button type="button" onclick="generate()">Generuj klocek</button>
 </div>
 
 <div id="platform2"> 
-<canvas id="canvas"> </canvas><br>
-<button type="button" onclick="draw()">Generuj klocek</button>
+
 </div>
 <script>
-
-
-
+var squeres = [];
+var canvas = document.getElementById('canvas');
+function generate(){
+ var randomColor = "#" + ((1<<24)*Math.random() | 0).toString(16);
+ squeres.push({w: 50, h: 50, x: 25,y: 25, color: randomColor});
+ draw();
+}
 function draw() {
-  var canvas = document.getElementById('canvas');
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
+	var i, len = squeres.length;
+    for(i = 0; i < len; i++)
+    {
+      ctx.fillRect(squeres[i].x, squeres[i].y,squeres[i].w, squeres[i].h);
+	  ctx.fillStyle = squeres[i].color;
+    }
+  } 
+}
 
-    ctx.fillRect(25,25,100,100);
-    ctx.strokeRect(50,50,50,50);
-  }
+function mouseDown(e)
+{
+    var i, len = squeres.length;
+    var bRect = canvas.getBoundingClientRect();
+    mouseX = (e.clientX - bRect.left);
+    mouseY = (e.clientY - bRect.top);
+    for (i=0; i < len; i++) {
+      if(inSquere(squeres[i], mouseX, mouseY))
+      {
+        drag = true;
+        dragHoldX = mouseX - squeres[i].x;
+        dragHoldY = mouseY - squeres[i].y;
+        dragIndex = i;
+      }
+    }
+    if (drag)
+    {
+      window.addEventListener("mousemove", mouseMove, false);
+    }
+    canvas.removeEventListener("mousedown", mouseDown, false);
+    window.addEventListener("mouseup", mouseUp, false);
+  return false;
+}
+
+
+function mouseMove(e)
+{
+var ctx = canvas.getContext('2d');
+	var posX, posY;
+	var minX = 0;
+	var maxX = canvas.width - 50;
+	var minY = 0;
+	var maxY = canvas.height - 50;
+ 
+	var bRect = canvas.getBoundingClientRect();
+	mouseX = (e.clientX - bRect.left);
+	mouseY = (e.clientY - bRect.top);
+	
+	posX = mouseX - dragHoldX;
+	posX = (posX < minX) ? minX : ((posX > maxX) ? maxX : posX);
+	posY = mouseY - dragHoldY;
+	posY = (posY < minY) ? minY : ((posY > maxY) ? maxY : posY);
+	
+	squeres[dragIndex].x = posX;
+	squeres[dragIndex].y = posY;
+	
+	ctx.clearRect(0,0,canvas.width, canvas.height);
+	draw();
+}
+canvas.addEventListener("mousedown", mouseDown, false);
+
+
+function inSquere(squere,mx,my)
+{
+ var ctx = canvas.getContext('2d');
+	var imageData = ctx.getImageData(mx, my, 1, 1), index = (mx + my * imageData.width) * 4;
+	if (imageData.data[3] > 0 ) 
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+function mouseUp()
+{
+    canvas.addEventListener("mousedown", mouseDown, false);
+    window.removeEventListener("mouseup", mouseUp, false);
+    if (drag)
+    {
+      drag = false;
+      window.removeEventListener("mousemove", mouseMove, false);
+    }
 }
 </script> 
 
