@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#platform {
+  float: left;
+  position:relative;
+  background-color: green;
+  width: 80%;
+  height: 100%;
+
+
+}
+#title {
+	background-color:black;
+	color:white;
+}
+
+#platform2 {
+  float: right;
+  position:relative;
+  width: 20%;
+  height: 100%;
+  background-color: red;
+
+}
