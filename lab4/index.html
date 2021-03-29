@@ -18,6 +18,16 @@
 var valueOfId = 0;
 document.querySelector('ol').addEventListener('input', (e) => {
    let items = document.querySelectorAll('li');
+   
+   if(items.length==0){
+		console.log('dupa');
+		const ol = document.querySelector("ol");
+		const li = document.createElement('li');
+		li.className = "dropzone";
+		li.setAttribute('draggable', true);
+		ol.appendChild(li);
+	}
+	
    valueOfId=0;
    console.log(items);
 	items.forEach(function(item) {
@@ -27,9 +37,6 @@ document.querySelector('ol').addEventListener('input', (e) => {
 	console.log("dzieje sie");
 	console.log(items);
 	
-	if(items.length==1){
-		
-	}
 });
 
 let dragged;
