@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="stylesheet.css">
 <div id="platform"> 
+	<h2>Notebook</h2>
 	<ol contenteditable="true">
 		 <li class="dropzone" id='0' draggable="true">List item 1</li>
 		 <li class="dropzone" id='1' draggable="true">List item 2</li>
@@ -12,7 +13,6 @@
 	  </ol>
 </div>
 
-
 <script>
 
 var valueOfId = 0;
@@ -20,7 +20,6 @@ document.querySelector('ol').addEventListener('input', (e) => {
    let items = document.querySelectorAll('li');
    
    if(items.length==0){
-		console.log('dupa');
 		const ol = document.querySelector("ol");
 		const li = document.createElement('li');
 		li.className = "dropzone";

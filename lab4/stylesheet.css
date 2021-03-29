@@ -1,17 +1,18 @@
 html, body {
   height: 100%;
-  margin: 0;
+  background-color: #936c6c;
 }
-#platform {
-  float: left;
-  position:relative;
-  background-color: green;
-  width: 100%;
-  height: 100%;
+ol {
+	background-color: white;
 }
 
-ol {
-	width: 100%;
-	height: 50%;
-	background-color: white;
+ol li {
+  background: #ffe5e5;
+  padding: 5px;
+  margin: 2px;
+  color: #936c6c;
+}
+h2 {
+	color: white;
+	text-align: center;
 }
