@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#platform {
+  float: left;
+  position:relative;
+  background-color: green;
+  width: 100%;
+  height: 100%;
+}
+
+ol {
+	width: 100%;
+	height: 50%;
+	background-color: white;
+}

@@ -10,14 +10,15 @@
 		 <li class="dropzone" id='3' draggable="true">List item 4</li>
 		 <li class="dropzone" id='4' draggable="true">List item 5</li>
 	  </ol>
-	  <div id="generate">
-	  
-	  
-	  </div>
 </div>
 
 
 <script>
+var valueOfId = 4;
+document.querySelector('ol').addEventListener('input', (e) => {
+    // Do something with the "change"-like event
+	console.log("dzieje sie");
+});
 
 let dragged;
 let id;
