@@ -4,20 +4,28 @@
 <link rel="stylesheet" href="stylesheet.css">
 <div id="platform"> 
 	<ol contenteditable="true">
-		 <li class="dropzone" id='0' draggable="true">List item 1</li>
-		 <li class="dropzone" id='1' draggable="true">List item 2</li>
-		 <li class="dropzone" id='2' draggable="true">List item 3</li>
-		 <li class="dropzone" id='3' draggable="true">List item 4</li>
-		 <li class="dropzone" id='4' draggable="true">List item 5</li>
+		 <li class="dropzone"  draggable="true">List item 1</li>
+		 <li class="dropzone"  draggable="true">List item 2</li>
+		 <li class="dropzone"  draggable="true">List item 3</li>
+		 <li class="dropzone"  draggable="true">List item 4</li>
+		 <li class="dropzone"  draggable="true">List item 5</li>
 	  </ol>
 </div>
 
 
 <script>
-var valueOfId = 4;
+
+var valueOfId = 0;
 document.querySelector('ol').addEventListener('input', (e) => {
-    // Do something with the "change"-like event
+   let items = document.querySelectorAll('li');
+   valueOfId=0;
+   console.log(items);
+	items.forEach(function(item) {
+	item.id = valueOfId;
+	valueOfId = valueOfId + 1;
+	});
 	console.log("dzieje sie");
+	console.log(items);
 });
 
 let dragged;
@@ -25,6 +33,8 @@ let id;
 let index;
 let indexDrop;
 let list;
+
+
 
   document.addEventListener("dragstart", ({target}) => {
       dragged = target;
