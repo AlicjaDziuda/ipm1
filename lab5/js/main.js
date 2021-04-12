@@ -30,6 +30,7 @@ function addCustomer(){
 	var name = $('#name').val();
 	var email = $('#email').val();
 	var phone = $('#phone').val();
+	var postalcode = $('#postalcode').val();
 	
 	var transaction = db.transaction(["customers"],"readwrite");
 	var store = transaction.objectStore("customers");
@@ -37,7 +38,8 @@ function addCustomer(){
 	var customer = {
 		name: name,
 		email: email,
-		phone: phone
+		phone: phone,
+		postalcode: postalcode
 	};
 	
 	var request = store.add(customer);
@@ -68,6 +70,7 @@ function showCustomers(e){
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='"+cursor.value.id+"'>"+cursor.value.name+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='"+cursor.value.id+"'>"+cursor.value.email+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='phone' data-id='"+cursor.value.id+"'>"+cursor.value.phone+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.postalcode+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
 			output += "</tr>";
 			cursor.continue();
