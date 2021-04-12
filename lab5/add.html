@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Customer</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div>
+      <div>
+        <div id="menu">
+          <ul>
+            <li class="active"><a href="index.html">Customers</a></li>
+            <li><a href="add.html">Add Customer</a></li>
+            <li><a href="#">Clear Customers</a></li>
+          </ul>
+        </div>
+        <div id="table">
+          <h1>Add Customer</h1>
+			<form role="form" onsubmit="addCustomer()">
+				<div>
+					<label>Customer Name</label>
+					<input type="text" id="name" class="form-control" placeholder="Enter Name">
+				</div>
+				<div>
+					<label>Customer Email</label>
+					<input type="email" id="email" class="form-control" placeholder="Enter Email">
+				</div>
+				<button type="submit">Add Customer</button>
+			</form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
