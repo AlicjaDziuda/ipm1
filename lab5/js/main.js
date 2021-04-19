@@ -28,8 +28,14 @@ $(document).ready(function(){
 
 function addCustomer(){
 	var name = $('#name').val();
+	var sname = $('#sname').val();
 	var email = $('#email').val();
 	var phone = $('#phone').val();
+	var idnr = $('#idnr').val();
+	/*var nipnr = $('#nipnr').val();
+	var city = $('#city').val();
+	var street = $('#street').val();
+	var housenr = $('#housenr').val();*/
 	var postalcode = $('#postalcode').val();
 	
 	var transaction = db.transaction(["customers"],"readwrite");
@@ -37,11 +43,17 @@ function addCustomer(){
 	
 	var customer = {
 		name: name,
+		sname: sname,
 		email: email,
 		phone: phone,
+		idnr: idnr,
+		/*nipnr: nipnr,
+		city: city,
+		street: street,
+		housenr: housenr,*/
 		postalcode: postalcode
 	};
-	
+	console.log(customer);
 	var request = store.add(customer);
 
 	request.onsuccess = function(e){
@@ -68,8 +80,18 @@ function showCustomers(e){
 			output += "<tr id='customer_"+cursor.value.id+"'>";
 			output += "<td>"+cursor.value.id+"</td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='"+cursor.value.id+"'>"+cursor.value.name+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='sname' data-id='"+cursor.value.id+"'>"+cursor.value.sname+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='"+cursor.value.id+"'>"+cursor.value.email+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='phone' data-id='"+cursor.value.id+"'>"+cursor.value.phone+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='idnr' data-id='"+cursor.value.id+"'>"+cursor.value.idnr+"</span></td>";
+			
+			/*output += "<td><span class='cursor customer' contenteditable='true' data-field='nipnr' data-id='"+cursor.value.id+"'>"+cursor.value.nipnr+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='city' data-id='"+cursor.value.id+"'>"+cursor.value.city+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='street' data-id='"+cursor.value.id+"'>"+cursor.value.street+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='housenr' data-id='"+cursor.value.id+"'>"+cursor.value.housenr+"</span></td>";*/
+			
+			
+			
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.postalcode+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
 			output += "</tr>";
