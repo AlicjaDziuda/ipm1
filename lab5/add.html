@@ -22,8 +22,12 @@
           <h1>Add Customer</h1>
 			<form role="form" onsubmit="addCustomer()">
 				<div>
-					<label>Customer Name</label>
-					<input type="text" id="name" placeholder="Enter Name">
+					<label>Customer First Name</label>
+					<input type="text" pattern="[a-zA-z]{50}" id="fname" placeholder="Enter Name">
+				</div>
+				<div>
+					<label>Customer Second Name</label>
+					<input type="text" pattern="[a-zA-z]{50}" id="sname" placeholder="Enter Name">
 				</div>
 				<div>
 					<label>Customer Email</label>
@@ -31,10 +35,30 @@
 				</div>
 				<div>
 					<label>Customer Phone</label>
-					<input type="phone" id="phone" placeholder="Enter Phone">
+					<input type="phone" id="phone" placeholder="434-426-434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
 				</div>
-					<div>
-				<label>Customer PostalCode</label>
+				<div>
+					<label>Customer ID number</label>
+					<input type="text" id="idnr"  pattern="[A-Za-z]{3} [0-9]{6}" placeholder="DFR 435643">
+				</div>
+				<div>
+					<label>Customer NIP number</label>
+					<input type="text" id="nipnr"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3}" placeholder="965-43-43-434">
+				</div>
+				<div>
+					<label>Customer City</label>
+					<input type="text" id="city"  pattern="[a-zA-Z]{50}" placeholder="Lodz">
+				</div>
+				<div>
+					<label>Customer Street</label>
+					<input type="text" id="street"  pattern="[a-zA-Z]{50}" placeholder="Poniatowskiego">
+				</div>
+				<div>
+					<label>Customer House Number</label>
+					<input type="text" id="housenr"  pattern="[0-9]{4}" placeholder="43">
+				</div>
+				<div>
+					<label>Customer ZIP Code</label>
 					<input type="text" id="postalcode"  pattern="[0-9]{2}-[0-9]{3}" placeholder="Enter Code">
 				</div>
 				<button type="submit">Add Customer</button>
