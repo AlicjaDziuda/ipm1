@@ -18,6 +18,11 @@
             <li><a href="add.html">Add Customer</a></li>
             <li><a onclick="clearCustomers()" href="#">Clear Customers</a></li>
           </ul>
+		  <form onsubmit="search()">
+			  <label for="gsearch">Search:</label>
+			  <input type="search" id="gsearch" name="gsearch">
+			  <input type="submit">
+		  </form>
         </div>
         <div id="table">
           <h1>Customers</h1>
