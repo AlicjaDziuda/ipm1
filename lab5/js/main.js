@@ -123,23 +123,28 @@ function search(){
 	var keyword = $('#gsearch').val();
 	console.log(keyword);
 
-	var transaction = db.transaction(["customers"],"readwrite");
-	var objectStore = transaction.objectStore("customers");
-	var request = objectStore.openCursor();
+	/*var transaction = db.transaction(["customers"],"readwrite");
+	var store = transaction.objectStore("customers");
+
+	var request = store.openCursor();
 	request.onsuccess = function(event) {
 		console.log("sukces");
 		var cursor = event.target.result;
 		if (cursor) {
-			if (cursor.value.column.indexOf(keyword) !== -1) {                
+			console.log(cursor.value.name.toLowerCase());
+			if(cursor.value.name.toLowerCase().includes(filter)){
+				console.log("yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeS")
+			}		*/		
+			/*if (cursor.value.column.indexOf(keyword) !== -1) {                
 				console.log("We found a row with value: " + JSON.stringify(cursor.value));
-			}  
+			} */ 
 
-			cursor.continue();          
+			/*cursor.continue();          
 		}
-	};
+	};*/
 	
 	
-	window.location.href="index.html";
+	//window.location.href="index.html";
 
 	
 }
