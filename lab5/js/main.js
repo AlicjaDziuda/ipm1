@@ -32,9 +32,9 @@ function addCustomer(){
 	var email = $('#email').val();
 	var phone = $('#phone').val();
 	var idnr = $('#idnr').val();
-	/*var nipnr = $('#nipnr').val();
+	var nipnr = $('#nipnr').val();
 	var city = $('#city').val();
-	var street = $('#street').val();
+	/*var street = $('#street').val();
 	var housenr = $('#housenr').val();*/
 	var postalcode = $('#postalcode').val();
 	
@@ -47,9 +47,9 @@ function addCustomer(){
 		email: email,
 		phone: phone,
 		idnr: idnr,
-		/*nipnr: nipnr,
+		nipnr: nipnr,
 		city: city,
-		street: street,
+		/*street: street,
 		housenr: housenr,*/
 		postalcode: postalcode
 	};
@@ -85,9 +85,9 @@ function showCustomers(e){
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='phone' data-id='"+cursor.value.id+"'>"+cursor.value.phone+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='idnr' data-id='"+cursor.value.id+"'>"+cursor.value.idnr+"</span></td>";
 			
-			/*output += "<td><span class='cursor customer' contenteditable='true' data-field='nipnr' data-id='"+cursor.value.id+"'>"+cursor.value.nipnr+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='nipnr' data-id='"+cursor.value.id+"'>"+cursor.value.nipnr+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='city' data-id='"+cursor.value.id+"'>"+cursor.value.city+"</span></td>";
-			output += "<td><span class='cursor customer' contenteditable='true' data-field='street' data-id='"+cursor.value.id+"'>"+cursor.value.street+"</span></td>";
+			/*output += "<td><span class='cursor customer' contenteditable='true' data-field='street' data-id='"+cursor.value.id+"'>"+cursor.value.street+"</span></td>";
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='housenr' data-id='"+cursor.value.id+"'>"+cursor.value.housenr+"</span></td>";*/
 			
 			
