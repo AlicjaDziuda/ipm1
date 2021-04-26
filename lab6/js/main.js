@@ -242,14 +242,23 @@ function generateRandom(){
 	const random = Math.floor(Math.random() * 9) + 1;
 	postalcode += random;
 	};
+	
+	
+   var city = ['Lodz', 'Warszawa', 'Oslo','Chelm', 'Gdynia','Sopot','Londyn', 'Koszalin','Amsterdam','Bombaj'];
+   
+   const citynr = Math.floor(Math.random() * (city.length-1)) + 1;
+   
+   var street = ['Karolewska', 'Gdanska', 'Szkolna','Miastowa', 'Pokorna','Mileszewska','Rozana', 'Klonowa','Zielona','Czerwona'];
+   
+   const streetnr = Math.floor(Math.random() * (street.length-1)) + 1;
    $("#name").val(fname);
    $("#sname").val(sname);
    $("#email").val(email);
    $("#phone").val(phone);
    $("#idnr").val(idnr);
    $("#nipnr").val(nipnr);
-   $("#city").val(city);
-   $("#street").val(street);
+   $("#city").val(city[citynr]);
+   $("#street").val(street[streetnr]);
    $("#housenr").val(housenr);
    $("#postalcode").val(postalcode);
 }
