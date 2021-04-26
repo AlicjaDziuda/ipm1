@@ -119,34 +119,41 @@ function removeCustomer(id){
 	};
 }
 
-function search(){
+function searchCustomer(){
+	var output = '';
+	$('#customers').html(output);
 	var keyword = $('#gsearch').val();
-	console.log(keyword);
-
-	/*var transaction = db.transaction(["customers"],"readwrite");
+	var transaction = db.transaction(["customers"],"readwrite");
 	var store = transaction.objectStore("customers");
-
+	var keyword2 = keyword.toLowerCase();
 	var request = store.openCursor();
 	request.onsuccess = function(event) {
-		console.log("sukces");
 		var cursor = event.target.result;
 		if (cursor) {
-			console.log(cursor.value.name.toLowerCase());
-			if(cursor.value.name.toLowerCase().includes(filter)){
+			console.log(cursor.value.id)
+			if(cursor.value.name.toLowerCase().includes(keyword2) || cursor.value.sname.toLowerCase().includes(keyword2) || cursor.value.email.toLowerCase().includes(keyword2) || cursor.value.phone.toLowerCase().includes(keyword2) || cursor.value.idnr.toLowerCase().includes(keyword2) || cursor.value.nipnr.toLowerCase().includes(keyword2) || cursor.value.city.toLowerCase().includes(keyword2) ||
+			cursor.value.street.toLowerCase().includes(keyword2) || cursor.value.housenr.toLowerCase().includes(keyword2) || cursor.value.postalcode.toLowerCase().includes(keyword2)){
 				console.log("yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeS")
-			}		*/		
-			/*if (cursor.value.column.indexOf(keyword) !== -1) {                
-				console.log("We found a row with value: " + JSON.stringify(cursor.value));
-			} */ 
+				output += "<tr id='customer_"+cursor.value.id+"'>";
+				output += "<td>"+cursor.value.id+"</td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='name' data-id='"+cursor.value.id+"'>"+cursor.value.name+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='sname' data-id='"+cursor.value.id+"'>"+cursor.value.sname+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='email' data-id='"+cursor.value.id+"'>"+cursor.value.email+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='phone' data-id='"+cursor.value.id+"'>"+cursor.value.phone+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='idnr' data-id='"+cursor.value.id+"'>"+cursor.value.idnr+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='nipnr' data-id='"+cursor.value.id+"'>"+cursor.value.nipnr+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='city' data-id='"+cursor.value.id+"'>"+cursor.value.city+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='street' data-id='"+cursor.value.id+"'>"+cursor.value.street+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='housenr' data-id='"+cursor.value.id+"'>"+cursor.value.housenr+"</span></td>";
+				output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.postalcode+"</span></td>";
+				output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
+				output += "</tr>";
 
-			/*cursor.continue();          
+			}
+			cursor.continue();          
 		}
-	};*/
-	
-	
-	//window.location.href="index.html";
-
-	
+		$('#customers').html(output);
+	};
 }
 
 function clearCustomers(){
