@@ -202,7 +202,39 @@ function generateRandom(){
       idnr += random;
    };
    
+   let nipnr = '';
+   for(let i = 0; i < 4; i++){
+	   
+	   if(i==0 || i==3){
+		    for(let i = 0; i < 3; i++){
+			  const random = Math.floor(Math.random() * 9) + 1;
+			  nipnr += random;
+		   };
+	   }
+	   else{
+		    for(let i = 0; i < 2; i++){
+			  const random = Math.floor(Math.random() * 9) + 1;
+			  nipnr += random;
+		   };
+	   }
+	    
+		if (i==3){
+			break;
+		}
+      nipnr += '-';
+   };
    
+   
+   let postalcode = '';
+   for(let i = 0; i < 2; i++){
+	const random = Math.floor(Math.random() * 9) + 1;
+	postalcode += random;
+	};
+   postalcode += '-';
+   for(let i = 0; i < 3; i++){
+	const random = Math.floor(Math.random() * 9) + 1;
+	postalcode += random;
+	};
    $("#name").val(fname);
    $("#sname").val(sname);
    $("#email").val(email);
