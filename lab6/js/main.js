@@ -224,7 +224,14 @@ function generateRandom(){
       nipnr += '-';
    };
    
+   let housenr = '';
+   const counter = Math.floor(Math.random() * 4) + 1;
+   for(let i = 0; i < counter; i++){
+	const random = Math.floor(Math.random() * 9) + 1;
+	housenr += random;
+	};
    
+	
    let postalcode = '';
    for(let i = 0; i < 2; i++){
 	const random = Math.floor(Math.random() * 9) + 1;
