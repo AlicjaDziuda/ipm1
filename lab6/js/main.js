@@ -158,14 +158,61 @@ function searchCustomer(){
 ///------------------------------
 function generateRandom(){
 
-	let fname = '';
+   let fname = '';
    for(let i = 0; i < 8; i++){
       const random = Math.floor(Math.random() * 27);
       fname += String.fromCharCode(97 + random);
    };
-   console.log(fname);
+   let sname = '';
+   for(let i = 0; i < 8; i++){
+      const random = Math.floor(Math.random() * 27);
+      sname += String.fromCharCode(97 + random);
+   };
+   let email = '';
+   for(let i = 0; i < 8; i++){
+      const random = Math.floor(Math.random() * 27);
+      email += String.fromCharCode(97 + random);
+   };
+   email = email + '@domain.com';
+   
+   let phone = '';
+    for(let i = 0; i < 3; i++){
+ 
+	   for(let i = 0; i < 3; i++){
+		const random = Math.floor(Math.random() * 9) + 1;
+		phone += random;
+		};
+		if (i==2){
+			break;
+		}
+		phone += '-';
+   };
+   
+   let idnr = '';
+   for(let i = 0; i < 3; i++){
+      const random = Math.floor(Math.random() * 27);
+      idnr += String.fromCharCode(97 + random);
+   };
+   
+   idnr = idnr.toUpperCase();
+   idnr += ' ';
+   
+   for(let i = 0; i < 6; i++){
+      const random = Math.floor(Math.random() * 9) + 1;
+      idnr += random;
+   };
+   
+   
    $("#name").val(fname);
-	
+   $("#sname").val(sname);
+   $("#email").val(email);
+   $("#phone").val(phone);
+   $("#idnr").val(idnr);
+   $("#nipnr").val(nipnr);
+   $("#city").val(city);
+   $("#street").val(street);
+   $("#housenr").val(housenr);
+   $("#postalcode").val(postalcode);
 }
 ///-------------------------------
 function clearCustomers(){
