@@ -11,3 +11,14 @@ body{
 .table{
 	width: 80%;
 }
+
+input{
+	border: 2px solid black;
+}
+
+input:valid{
+	border: 2px solid green;
+}
+input:invalid{
+	border: 2px solid red;
+}
