@@ -158,20 +158,30 @@ function searchCustomer(){
 ///------------------------------
 function generateRandom(){
 
-   let fname = '';
+   var fname = ['Anna', 'Alicja', 'Piotr','Aleksander', 'John','Adam','Dawid', 'Tomasz','Antonina','Maria'];
+   const fnamenr = Math.floor(Math.random() * (fname.length-1)) + 1;
+   
+    var sname = ['Dziuda', 'Lipa', 'Kot','Wendo', 'Pedzel','Kon','Srebro', 'Brendo','Tuleja','Henrykowicz'];
+   const snamenr = Math.floor(Math.random() * (sname.length-1)) + 1;
+   
+   /*let fname = '';
    for(let i = 0; i < 8; i++){
       const random = Math.floor(Math.random() * 27);
       fname += String.fromCharCode(97 + random);
-   };
-   let sname = '';
+   };*/
+   /*let sname = '';
    for(let i = 0; i < 8; i++){
       const random = Math.floor(Math.random() * 27);
       sname += String.fromCharCode(97 + random);
-   };
+   };*/
    let email = '';
+   var letters = 'abcdefghijklmnopqrstuvwxyz';
    for(let i = 0; i < 8; i++){
-      const random = Math.floor(Math.random() * 27);
-      email += String.fromCharCode(97 + random);
+      email += letters[Math.floor(Math.random() * letters.length)];
+   };
+   for(let i = 0; i < 2; i++){
+      const random = Math.floor(Math.random() * 9) + 1;
+      email += random;
    };
    email = email + '@domain.com';
    
@@ -189,9 +199,9 @@ function generateRandom(){
    };
    
    let idnr = '';
+   var chars = 'abcdefghijklmnopqrstuvwxyz';
    for(let i = 0; i < 3; i++){
-      const random = Math.floor(Math.random() * 27);
-      idnr += String.fromCharCode(97 + random);
+	  idnr += chars[Math.floor(Math.random() * chars.length)];
    };
    
    idnr = idnr.toUpperCase();
@@ -251,8 +261,8 @@ function generateRandom(){
    var street = ['Karolewska', 'Gdanska', 'Szkolna','Miastowa', 'Pokorna','Mileszewska','Rozana', 'Klonowa','Zielona','Czerwona'];
    
    const streetnr = Math.floor(Math.random() * (street.length-1)) + 1;
-   $("#name").val(fname);
-   $("#sname").val(sname);
+   $("#name").val(fname[fnamenr]);
+   $("#sname").val(sname[snamenr]);
    $("#email").val(email);
    $("#phone").val(phone);
    $("#idnr").val(idnr);
