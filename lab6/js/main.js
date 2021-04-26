@@ -26,7 +26,7 @@ $(document).ready(function(){
 	//--------------------------------------
 	 $("#gsearch").keyup(function() {
        var keyword = $('#gsearch').val();
-	   console.log(keyword);
+	   //console.log(keyword);
 	   
 	   searchCustomer2(keyword);
   
@@ -127,6 +127,24 @@ function removeCustomer(id){
 		console.log('Error', e.target.error.name);
 	};
 }
+
+/*function editCustomer(id){
+	var transaction = db.transaction(["customers"],"readwrite");
+	var store = transaction.objectStore("customers");
+	
+	/*var request = store.delete(id);
+	
+	request.onsuccess = function(){
+		console.log('customer '+id+' Deleted');
+		$('.customer_'+id).remove();
+	};
+	
+	request.onerror = function(e){
+		alert("Sorry, the customer was not removed");
+		console.log('Error', e.target.error.name);
+	};
+	console.log(id);
+}*/
 
 function searchCustomer(){
 	var output = '';
@@ -332,6 +350,20 @@ $('#customers').on('blur','.customer',function(){
 
 	var id = $(this).data('id');
 	
+	/*var lastVal = $(this).val();
+	console.log(lastVal);
+	
+	if(field == 'phone'){
+		var reg = '/[0-9]{3}-[0-9]{3}-[0-9]{3}/';
+	
+		if (newText.match(reg)){
+			console.log("gitara");
+		}
+		else{
+			console.log("lipa");
+		}
+	}*/
+	
 
 	var transaction = db.transaction(["customers"],"readwrite");
 
@@ -345,6 +377,25 @@ $('#customers').on('blur','.customer',function(){
 			data.name = newText;
 		} else if(field == 'email'){
 			data.email = newText;
+		}
+		else if(field == 'sname'){
+			data.sname = newText;
+		}else if(field == 'phone'){
+			data.phone = newText;
+		}
+		else if(field == 'idnr'){
+			data.idnr = newText;
+		}else if(field == 'nipnr'){
+			data.nipnr = newText;
+		}
+		else if(field == 'city'){
+			data.city = newText;
+		}else if(field == 'street'){
+			data.street = newText;
+		}else if(field == 'housenr'){
+			data.housenr = newText;
+		}else if(field == 'postalcode'){
+			data.postalcode = newText;
 		}
 		
 
