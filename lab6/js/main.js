@@ -155,7 +155,19 @@ function searchCustomer(){
 		$('#customers').html(output);
 	};
 }
+///------------------------------
+function generateRandom(){
 
+	let fname = '';
+   for(let i = 0; i < 8; i++){
+      const random = Math.floor(Math.random() * 27);
+      fname += String.fromCharCode(97 + random);
+   };
+   console.log(fname);
+   $("#name").val(fname);
+	
+}
+///-------------------------------
 function clearCustomers(){
 	indexedDB.deleteDatabase('customermanager');
 	window.location.href="index.html";
