@@ -335,6 +335,30 @@ function generateRandom(){
    $("#housenr").val(housenr);
    $("#postalcode").val(postalcode);
 }
+///------------------------------------
+function json(){
+	console.log("hrhr");
+	
+	var name = $('#name').val();
+	var sname = $('#sname').val();
+	var email = $('#email').val();
+	var phone = $('#phone').val();
+	var idnr = $('#idnr').val();
+	var nipnr = $('#nipnr').val();
+	var city = $('#city').val();
+	var street = $('#street').val();
+	var housenr = $('#housenr').val();
+	var postalcode = $('#postalcode').val();
+	
+	
+
+
+	
+	var text = '{"name": "'+name+'", "sname": "'+sname+'", "email": "'+email+'", "phone": "'+phone+'", "idnr": "'+idnr+'", "nipnr": "'
+	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'"}';
+	var obj = JSON.parse(text);
+	console.log(obj);
+}
 ///-------------------------------
 function clearCustomers(){
 	indexedDB.deleteDatabase('customermanager');
