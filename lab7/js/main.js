@@ -337,6 +337,8 @@ function generateRandom(){
 }
 ///------------------------------------
 function json(){
+	
+	var w;
 	console.log("hrhr");
 	
 	var name = $('#name').val();
@@ -350,14 +352,69 @@ function json(){
 	var housenr = $('#housenr').val();
 	var postalcode = $('#postalcode').val();
 	
-	
-
-
-	
 	var text = '{"name": "'+name+'", "sname": "'+sname+'", "email": "'+email+'", "phone": "'+phone+'", "idnr": "'+idnr+'", "nipnr": "'
 	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'"}';
 	var obj = JSON.parse(text);
-	console.log(obj);
+	
+	/*w = new Worker('background.js');
+	
+	worker.addEventListener('message', function(e) {
+		alert('otrzymano odpowiedź: ' + e.data);
+	}, false);
+	worker.postMessage('start');*/
+	
+	var invertName = "";
+	
+	for (var i = 0; i < obj["name"].length; i++) {
+		var ch = obj["name"].charAt(i);
+		if (ch == ch.toUpperCase()) {
+			invertName += ch.toLowerCase() 
+		}else{
+			invertName += ch.toUpperCase(); 
+		}
+	}
+
+	var newName = letters(obj["name"]);
+	var newSname = letters(obj["sname"]);
+	var newEmail = letters(obj["email"]);
+	var newPhone = letters(obj["phone"]);
+	var newId = letters(obj["idnr"]);
+	var newNip = letters(obj["nipnr"]);
+	var newCity = letters(obj["city"]);
+	var newStreet = letters(obj["street"]);
+	var newHousenr = letters(obj["housenr"]);
+	var newPostal = letters(obj["postalcode"]);
+	
+	var text2 = '{"name": "'+newName+'", "sname": "'+newSname+'", "email": "'+newEmail+'", "phone": "'+newPhone+'", "idnr": "'+newId+'", "nipnr": "'
+	+newNip+'", "city": "'+newCity+'", "street": "'+newStreet+'", "housenr": "'+newHousenr+'", "postalcode": "'+newPostal+'"}';
+	var obj2 = JSON.parse(text2);
+	console.log(obj2);
+	
+	$('#name').val(newName);
+	$('#sname').val(newSname);
+	$('#email').val(newEmail);
+	$('#phone').val(newPhone);
+	$('#idnr').val(newId);
+	$('#nipnr').val(newNip);
+	$('#city').val(newCity);
+	$('#street').val(newStreet);
+	$('#housenr').val(newHousenr);
+	v$('#postalcode').val(newPostal);
+}
+
+function letters(value){
+	var invert = "";
+	
+	for (var i = 0; i < value.length; i++) {
+		var ch = value.charAt(i);
+		if (ch == ch.toUpperCase()) {
+			invert += ch.toLowerCase() 
+		}else{
+			invert += ch.toUpperCase(); 
+		}
+	}
+	console.log(invert);
+	return invert;
 }
 ///-------------------------------
 function clearCustomers(){
