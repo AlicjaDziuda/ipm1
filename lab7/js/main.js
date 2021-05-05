@@ -338,7 +338,7 @@ function generateRandom(){
 ///------------------------------------
 function json(){
 	
-	var w;
+	var worker;
 	console.log("hrhr");
 	
 	var name = $('#name').val();
@@ -356,12 +356,15 @@ function json(){
 	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'"}';
 	var obj = JSON.parse(text);
 	
-	/*w = new Worker('background.js');
+	if (typeof(w) == "undefined") {
+		  worker  = new Worker("b.js");
+		}
+	//worker = new Worker('background.js');
 	
 	worker.addEventListener('message', function(e) {
 		alert('otrzymano odpowiedź: ' + e.data);
 	}, false);
-	worker.postMessage('start');*/
+	worker.postMessage('start');
 	
 	var invertName = "";
 	
@@ -399,7 +402,7 @@ function json(){
 	$('#city').val(newCity);
 	$('#street').val(newStreet);
 	$('#housenr').val(newHousenr);
-	v$('#postalcode').val(newPostal);
+	$('#postalcode').val(newPostal);
 }
 
 function letters(value){
