@@ -23,11 +23,10 @@ this.addEventListener('message', function(e) {
 	console.log("R" + R);
 	console.log("G" + G);
 	console.log("B" + B);
-   /* var text2 = '{"name": "'+newName+'", "sname": "'+newSname+'", "email": "'+newEmail+'", "phone": "'+newPhone+'", "idnr": "'+newId+'", "nipnr": "'
-	+newNip+'", "city": "'+newCity+'", "street": "'+newStreet+'", "housenr": "'+newHousenr+'", "postalcode": "'+newPostal+'"}';
+    var text2 = '{"r": "'+R+'", "g": "'+G+'", "b": "'+B+'"}';
 	var obj2 = JSON.parse(text2);
 	console.log(obj2);
-    this.postMessage(obj2);*/
+    this.postMessage(obj2);
     
 }, false);
 

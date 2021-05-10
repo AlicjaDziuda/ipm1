@@ -399,17 +399,11 @@ function colors(){
 		  worker  = new Worker("c.js");
 		}
 	
+	var R,G,B;
 	worker.addEventListener('message', function(e) {
-		/*$('#name').val(e.data["name"]);
-		$('#sname').val(e.data["sname"]);
-		$('#email').val(e.data["email"]);
-		$('#phone').val(e.data["phone"]);
-		$('#idnr').val(e.data["idnr"]);
-		$('#nipnr').val(e.data["nipnr"]);
-		$('#city').val(e.data["city"]);
-		$('#street').val(e.data["street"]);
-		$('#housenr').val(e.data["housenr"]);
-		$('#postalcode').val(e.data["postalcode"]);*/
+		R =e.data["r"];
+		G= e.data["g"];
+		B = e.data["b"];
 	}, false);
 	worker.postMessage(obj);
 
