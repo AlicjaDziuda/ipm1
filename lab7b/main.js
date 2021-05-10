@@ -406,7 +406,7 @@ function colors(){
 		B = e.data["b"];
 	}, false);
 	worker.postMessage(obj);
-
+	$("#img").attr("src",jpg);
 }
 ///-------------------------------
 function clearCustomers(){
