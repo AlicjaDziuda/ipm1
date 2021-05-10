@@ -374,7 +374,46 @@ function json(){
 	worker.postMessage(obj);
 
 }
+///-------------------------------
+function colors(){
+	
+	var worker;
+	
+	var name = $('#name').val();
+	var sname = $('#sname').val();
+	var email = $('#email').val();
+	var phone = $('#phone').val();
+	var idnr = $('#idnr').val();
+	var nipnr = $('#nipnr').val();
+	var city = $('#city').val();
+	var street = $('#street').val();
+	var housenr = $('#housenr').val();
+	var postalcode = $('#postalcode').val();
+	var jpg = $('#jpg').val();
+	
+	var text = '{"name": "'+name+'", "sname": "'+sname+'", "email": "'+email+'", "phone": "'+phone+'", "idnr": "'+idnr+'", "nipnr": "'
+	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'", "jpg": "'+jpg+"}';
+	var obj = JSON.parse(text);
+	
+	if (typeof(w) == "undefined") {
+		  worker  = new Worker("c.js");
+		}
+	
+	worker.addEventListener('message', function(e) {
+		/*$('#name').val(e.data["name"]);
+		$('#sname').val(e.data["sname"]);
+		$('#email').val(e.data["email"]);
+		$('#phone').val(e.data["phone"]);
+		$('#idnr').val(e.data["idnr"]);
+		$('#nipnr').val(e.data["nipnr"]);
+		$('#city').val(e.data["city"]);
+		$('#street').val(e.data["street"]);
+		$('#housenr').val(e.data["housenr"]);
+		$('#postalcode').val(e.data["postalcode"]);*/
+	}, false);
+	worker.postMessage(obj);
 
+}
 ///-------------------------------
 function clearCustomers(){
 	indexedDB.deleteDatabase('customermanager');
