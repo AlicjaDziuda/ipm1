@@ -22,3 +22,17 @@ input:valid{
 input:invalid{
 	border: 2px solid red;
 }
+#image{
+	width: 500px;
+	height: 500px;
+	background-size: 100%,100%;
+
+	
+}
+
+#filter{
+	width: 500px;
+	height: 500px;
+	background-size: 100%,100%;
+
+}

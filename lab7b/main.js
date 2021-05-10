@@ -400,13 +400,28 @@ function colors(){
 		}
 	
 	var R,G,B;
+	var newColor
 	worker.addEventListener('message', function(e) {
 		R =e.data["r"];
 		G= e.data["g"];
 		B = e.data["b"];
+		console.log(R);
+		console.log(G);
+		console.log(B);
+		newColor= 'rgb(' + R+ ',' + G + ',' + B + ')';
+		console.log(newColor);
+		
+		//$("#img").attr("src",jpg);
+		//var w= $("#img").width();
+		//var h = $("#img").height();
+		//console.log(w);
+		//console.log(h);
+		$("#image").css("background-image", "url(" + jpg + ")");
+		$("#filter").css("background-color", newColor);
+		$('#filter').css('opacity', '0.5');
+	
 	}, false);
 	worker.postMessage(obj);
-	$("#img").attr("src",jpg);
 }
 ///-------------------------------
 function clearCustomers(){
