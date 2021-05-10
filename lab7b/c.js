@@ -25,11 +25,25 @@ function letters(value){
 	
 	for (var i = 0; i < value.length; i++) {
 		var ch = value.charAt(i);
-		if (ch == ch.toUpperCase()) {
-			invert += ch.toLowerCase() 
-		}else{
-			invert += ch.toUpperCase(); 
+		if(ch.match(/a/)){
+			count = count + 1;
 		}
+		else if(ch.match(/b/)){
+			count = count + 2;
+		}
+		else if(ch.match(/b/)){
+			count = count + 2;
+		}
+		else if(ch.match(/b/)){
+			count = count + 2;
+		}
+		else if(ch.match(/b/)){
+			count = count + 2;
+		}
+		else if(ch.match(/[A-Z]/)){
+			count = count + 31;
+		}
+		
 	}
 	console.log(count);
 	return count;

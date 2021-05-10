@@ -392,7 +392,7 @@ function colors(){
 	var jpg = $('#jpg').val();
 	
 	var text = '{"name": "'+name+'", "sname": "'+sname+'", "email": "'+email+'", "phone": "'+phone+'", "idnr": "'+idnr+'", "nipnr": "'
-	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'", "jpg": "'+jpg+"}';
+	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'", "jpg": "'+jpg+'"}';
 	var obj = JSON.parse(text);
 	
 	if (typeof(w) == "undefined") {
