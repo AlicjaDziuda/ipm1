@@ -23,16 +23,21 @@ input:invalid{
 	border: 2px solid red;
 }
 #image{
-	width: 500px;
-	height: 500px;
+	width: 100px;
+	height: 100px;
 	background-size: 100%,100%;
 
-	
 }
+#myCanvas{
+	width: 100px;
+	height: 100px;
+	background-size: 100%,100%;
 
+}
 #filter{
-	width: 500px;
-	height: 500px;
+	width: 100px;
+	height: 100px;
 	background-size: 100%,100%;
-
+	opacity: 50%;
 }
+

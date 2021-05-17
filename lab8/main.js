@@ -46,7 +46,10 @@ function addCustomer(){
 	var street = $('#street').val();
 	var housenr = $('#housenr').val();
 	var postalcode = $('#postalcode').val();
-	
+
+	var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext('2d');
+
 	var transaction = db.transaction(["customers"],"readwrite");
 	var store = transaction.objectStore("customers");
 	
@@ -60,7 +63,8 @@ function addCustomer(){
 		city: city,
 		street: street,
 		housenr: housenr,
-		postalcode: postalcode
+		postalcode: postalcode,
+		img: canvas.toDataURL("image/jpeg")
 	};
 	console.log(customer);
 	var request = store.add(customer);
@@ -102,6 +106,7 @@ function showCustomers(e){
 			
 			
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.postalcode+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='img' data-id='"+cursor.value.id+"'>"+"<img width='100' height='100' src='"+cursor.value.img+"'>"+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
 			output += "</tr>";
 			cursor.continue();
@@ -390,17 +395,21 @@ function colors(){
 	var housenr = $('#housenr').val();
 	var postalcode = $('#postalcode').val();
 	var jpg = $('#jpg').val();
+
+
 	
 	var text = '{"name": "'+name+'", "sname": "'+sname+'", "email": "'+email+'", "phone": "'+phone+'", "idnr": "'+idnr+'", "nipnr": "'
 	+nipnr+'", "city": "'+city+'", "street": "'+street+'", "housenr": "'+housenr+'", "postalcode": "'+postalcode+'", "jpg": "'+jpg+'"}';
 	var obj = JSON.parse(text);
-	
+
 	if (typeof(w) == "undefined") {
 		  worker  = new Worker("c.js");
 		}
 	
 	var R,G,B;
 	var newColor
+
+
 	worker.addEventListener('message', function(e) {
 		R =e.data["r"];
 		G= e.data["g"];
@@ -411,14 +420,32 @@ function colors(){
 		newColor= 'rgb(' + R+ ',' + G + ',' + B + ')';
 		console.log(newColor);
 		
-		//$("#img").attr("src",jpg);
-		//var w= $("#img").width();
-		//var h = $("#img").height();
-		//console.log(w);
-		//console.log(h);
 		$("#image").css("background-image", "url(" + jpg + ")");
+
 		$("#filter").css("background-color", newColor);
-		$('#filter').css('opacity', '0.5');
+		//$('#filter').css('opacity', '0.5');
+
+		var canvas = document.getElementById("myCanvas");
+		var context = canvas.getContext('2d');
+	
+		var base_image = new Image();
+		base_image.src = jpg;
+		base_image.crossOrigin = "Anonymous";
+		base_image.onload = function () {
+			context.width = 100;
+			context.height = 100;
+			context.drawImage(base_image, 0, 0, 100, 100);
+			const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+			const data = imageData.data;
+			for (var i = 0; i < data.length; i += 4) {
+				data[i]     = R;     // red
+				data[i + 1] = G; // green
+				data[i + 2] = B; // blue
+			}
+			context.putImageData(imageData, 0, 0);
+			canvas.toDataURL("image/jpeg");
+			console.log(canvas.toDataURL("image/jpeg"));
+		}
 	
 	}, false);
 	worker.postMessage(obj);
