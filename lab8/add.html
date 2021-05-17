@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Customer</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div>
+      <div>
+        <div id="menu">
+          <ul>
+            <li class="active"><a href="index.html">Customers</a></li>
+            <li><a href="add.html">Add Customer</a></li>
+            <li><a href="#">Clear Customers</a></li>
+          </ul>
+        </div>
+        <div id="table">
+          <h1>Add Customer</h1>
+		  <!-------------------------------------------------->
+		    <button type = "button" onclick = "generateRandom()">Generate random values</button>
+			<button type = "button" onclick = "json()">Start Webworker</button>
+			<button type = "button" onclick = "colors()">Start Second Webworker</button>
+			<br>
+			<br>
+		  <!-------------------------------------------->
+			<form role="form" onsubmit="addCustomer()">
+				<div class="form-group">
+					<label>Customer First Name</label>
+					<input type="text" pattern="[a-zA-z]{2,50}" id="name" placeholder="Enter Name" required>
+				</div>
+				<div class="form-group">
+					<label>Customer Second Name</label>
+					<input type="text" pattern="[a-zA-z]{2,50}" id="sname" placeholder="Enter Name" required>
+				</div>
+				<div class="form-group">
+					<label>Customer Email</label>
+					<input type="email" id="email" placeholder="Enter Email" required>
+				</div>
+				<div class="form-group">
+					<label>Customer Phone</label>
+					<input type="phone" id="phone" placeholder="434-426-434" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+				</div>
+				<div class="form-group">
+					<label>Customer ID number</label>
+					<input type="text" id="idnr"  pattern="[A-Za-z]{3} [0-9]{6}" placeholder="DFR 435643" required>
+				</div>
+				<div class="form-group">
+					<label>Customer NIP number</label>
+					<input type="text" id="nipnr"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{3}" placeholder="965-43-43-434" required>
+				</div>
+				<div class="form-group">
+					<label>Customer City</label>
+					<input type="text" id="city"  pattern="[a-zA-Z]{2,50}" placeholder="Lodz" required>
+				</div>
+				<div class="form-group">
+					<label>Customer Street</label>
+					<input type="text" id="street"  pattern="[a-zA-Z]{2,50}" placeholder="Poniatowskiego" required>
+				</div>
+				<div class="form-group">
+					<label>Customer House Number</label>
+					<input type="text" id="housenr"  pattern="[0-9]{1,4}" placeholder="43" required>
+				</div>
+				<div class="form-group">
+					<label>Customer ZIP Code</label>
+					<input type="text" id="postalcode"  pattern="[0-9]{2}-[0-9]{3}" placeholder="Enter Code" required>
+				</div>
+				<div class="form-group">
+					<label>JPG</label>
+					<input type="text" id="jpg" placeholder="Enter Code" required>
+				</div>
+				<button type="submit">Add Customer</button>
+			</form>
+        </div>
+		<br>
+		<br>
+		
+		<div id="image">
+			
+			<div id="filter">
+			
+
+			</div>
+		</div>
+      </div>
+    </div>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="main.js"></script>
+	<script src="b.js"></script>
+	<script src="c.js"></script>
+  </body>
+</html>
