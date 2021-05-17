@@ -46,7 +46,9 @@ function addCustomer(){
 	var street = $('#street').val();
 	var housenr = $('#housenr').val();
 	var postalcode = $('#postalcode').val();
-	
+	var img = $('#jpg').val();
+	//var img = canvas.toDataURL(image);
+	//console.log(img);
 	var transaction = db.transaction(["customers"],"readwrite");
 	var store = transaction.objectStore("customers");
 	
@@ -60,7 +62,8 @@ function addCustomer(){
 		city: city,
 		street: street,
 		housenr: housenr,
-		postalcode: postalcode
+		postalcode: postalcode,
+		img: img
 	};
 	console.log(customer);
 	var request = store.add(customer);
@@ -102,6 +105,8 @@ function showCustomers(e){
 			
 			
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.postalcode+"</span></td>";
+			//output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.img+"</span></td>";
+			output += "<td><span class='cursor customer' contenteditable='true' data-field='img' data-id='"+cursor.value.id+"'>"+"<img width='100' height='100' src='"+cursor.value.img+"'>"+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
 			output += "</tr>";
 			cursor.continue();
@@ -419,6 +424,8 @@ function colors(){
 		$("#image").css("background-image", "url(" + jpg + ")");
 		$("#filter").css("background-color", newColor);
 		$('#filter').css('opacity', '0.5');
+
+		$("#myCanvas").css("background-image", "url(" + jpg + ")");
 	
 	}, false);
 	worker.postMessage(obj);
