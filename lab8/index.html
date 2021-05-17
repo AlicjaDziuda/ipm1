@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customer Manager</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+    <div>
+      <div>
+        <div id="menu">
+          <ul>
+            <li><a href="index.html">Customers</a></li>
+            <li><a href="add.html">Add Customer</a></li>
+            <li><a onclick="clearCustomers()" href="#">Clear Customers</a></li>
+          </ul>
+		
+		  <label for="gsearch">Search:</label>
+		  <input type="search" id="gsearch" name="gsearch">
+		  <a onclick="searchCustomer()" href="#">Search</a>
+		  
+
+        </div>
+        <div id="table">
+          <h1>Customers</h1>
+          <div>
+            <table >
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+				  <th>Second Name</th>
+                  <th>Email Address</th>
+				  <th>Phone</th>
+				  <th>ID number</th>
+				  <th>NIP number</th>
+				  <th>City</th>
+				  <th>Street</th>
+				  <th>House number</th>
+				  <th>ZIP code</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="customers">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="main.js"></script>
+	<script src="b.js"></script>
+  <script src="c.js"></script>
+  </body>
+</html>

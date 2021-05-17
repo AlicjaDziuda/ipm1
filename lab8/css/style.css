@@ -1,0 +1,38 @@
+body{
+    padding-top: 50px;
+}
+
+
+.menu {
+	width: 20%;
+	
+}
+
+.table{
+	width: 80%;
+}
+
+input{
+	border: 2px solid black;
+}
+
+input:valid{
+	border: 2px solid green;
+}
+input:invalid{
+	border: 2px solid red;
+}
+#image{
+	width: 500px;
+	height: 500px;
+	background-size: 100%,100%;
+
+	
+}
+
+#filter{
+	width: 500px;
+	height: 500px;
+	background-size: 100%,100%;
+
+}
