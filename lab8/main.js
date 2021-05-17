@@ -423,7 +423,7 @@ function colors(){
 		$("#image").css("background-image", "url(" + jpg + ")");
 
 		$("#filter").css("background-color", newColor);
-		//$('#filter').css('opacity', '0.5');
+		$('#filter').css('opacity', '0.5');
 
 		var canvas = document.getElementById("myCanvas");
 		var context = canvas.getContext('2d');
@@ -434,15 +434,14 @@ function colors(){
 		base_image.onload = function () {
 			context.width = 100;
 			context.height = 100;
+			
+			context.rect(0, 0, 100, 100);
+			context.stroke();
+			context.fillStyle = 'rgba('+R+', '+G+', '+B+', 1)';
+			context.fillRect(0, 0, 100, 100);
+			context.globalAlpha=0.4;
 			context.drawImage(base_image, 0, 0, 100, 100);
-			const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-			const data = imageData.data;
-			for (var i = 0; i < data.length; i += 4) {
-				data[i]     = R;     // red
-				data[i + 1] = G; // green
-				data[i + 2] = B; // blue
-			}
-			context.putImageData(imageData, 0, 0);
+
 			canvas.toDataURL("image/jpeg");
 			console.log(canvas.toDataURL("image/jpeg"));
 		}
