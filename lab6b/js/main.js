@@ -27,7 +27,10 @@ $(document).ready(function(){
 	 $("#gsearch").keyup(function() {
        var keyword = $('#gsearch').val();
 	   //console.log(keyword);
-	   searchCustomer2(keyword);
+	   if($("#gsearch")!=null){
+			searchCustomer2(keyword);
+	   }
+	  
   
    });
    //--------------------------------------
@@ -45,6 +48,9 @@ function addCustomer(){
 	var street = $('#street').val();
 	var housenr = $('#housenr').val();
 	var postalcode = $('#postalcode').val();
+	if(name=="" || sname=="" || email=="" || phone=="" || idnr=="" || city=="" || street=="" || housenr=="" || postalcode==""){
+		return;
+	}
 	
 	var transaction = db.transaction(["customers"],"readwrite");
 	var store = transaction.objectStore("customers");
