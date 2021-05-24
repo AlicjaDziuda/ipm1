@@ -66,7 +66,8 @@ function addCustomer(){
 	var request = store.add(customer);
 
 	request.onsuccess = function(e){
-		window.location.href="index.html";
+		//window.location.href="index.html";
+		showCustomers(e);
 	};
 	
 
