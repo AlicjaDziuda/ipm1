@@ -27,7 +27,6 @@ $(document).ready(function(){
 	 $("#gsearch").keyup(function() {
        var keyword = $('#gsearch').val();
 	   //console.log(keyword);
-	   
 	   searchCustomer2(keyword);
   
    });
@@ -64,10 +63,19 @@ function addCustomer(){
 	};
 	console.log(customer);
 	var request = store.add(customer);
-
+	$('#name').val("");
+	$('#sname').val("");
+	$('#email').val("");
+	$('#phone').val("");
+	$('#idnr').val("");
+	$('#nipnr').val("");
+	$('#city').val("");
+	$('#street').val("");
+	$('#housenr').val("");
+	$('#postalcode').val("");
 	request.onsuccess = function(e){
 		//window.location.href="index.html";
-		showCustomers(e);
+		showCustomers(e); //bez odswiezania
 	};
 	
 
@@ -129,23 +137,6 @@ function removeCustomer(id){
 	};
 }
 
-/*function editCustomer(id){
-	var transaction = db.transaction(["customers"],"readwrite");
-	var store = transaction.objectStore("customers");
-	
-	/*var request = store.delete(id);
-	
-	request.onsuccess = function(){
-		console.log('customer '+id+' Deleted');
-		$('.customer_'+id).remove();
-	};
-	
-	request.onerror = function(e){
-		alert("Sorry, the customer was not removed");
-		console.log('Error', e.target.error.name);
-	};
-	console.log(id);
-}*/
 
 function searchCustomer(){
 	var output = '';
@@ -228,16 +219,6 @@ function generateRandom(){
     var sname = ['Dziuda', 'Lipa', 'Kot','Wendo', 'Pedzel','Kon','Srebro', 'Brendo','Tuleja','Henrykowicz'];
    const snamenr = Math.floor(Math.random() * (sname.length-1)) + 1;
    
-   /*let fname = '';
-   for(let i = 0; i < 8; i++){
-      const random = Math.floor(Math.random() * 27);
-      fname += String.fromCharCode(97 + random);
-   };*/
-   /*let sname = '';
-   for(let i = 0; i < 8; i++){
-      const random = Math.floor(Math.random() * 27);
-      sname += String.fromCharCode(97 + random);
-   };*/
    let email = '';
    var letters = 'abcdefghijklmnopqrstuvwxyz';
    for(let i = 0; i < 8; i++){
