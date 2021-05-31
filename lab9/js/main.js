@@ -118,6 +118,7 @@ function showCustomers(e){
 			
 			output += "<td><span class='cursor customer' contenteditable='true' data-field='postalcode' data-id='"+cursor.value.id+"'>"+cursor.value.postalcode+"</span></td>";
 			output += "<td><a onclick='removeCustomer("+cursor.value.id+")' href=''>Delete</a></td>";
+			output += "<td><a onclick='buy("+cursor.value.id+")' href='dock.html'>Buy</a></td>";
 			output += "</tr>";
 			cursor.continue();
 		}
@@ -143,6 +144,22 @@ function removeCustomer(id){
 	};
 }
 
+function buy(id){
+	var transaction = db.transaction(["customers"],"readwrite");
+	var store = transaction.objectStore("customers");
+	
+	//var request = store.delete(id);
+	
+	request.onsuccess = function(){
+		console.log('customer '+id+' Deleted');
+		$('.customer_'+id).remove();
+	};
+	
+	request.onerror = function(e){
+		alert("Sorry, the customer was not removed");
+		console.log('Error', e.target.error.name);
+	};
+}
 
 function searchCustomer(){
 	var output = '';
