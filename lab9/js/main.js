@@ -150,13 +150,14 @@ function buy(id){
 	
 
 	var request = store.get(id);
-	
+	var item = $( "#cars option:selected" ).text();
 	request.onsuccess = function(){
 		var data = request.result;
 		console.log(data['name']);
-		var url = "dock.html?name="+data['name']+ "&sname="+data['sname'] ;
+		var url = "dock.html?name="+data['name']+ "&sname="+data['sname'] + "&phone="+data['phone']+ "&email="+data['email']
+		+ "&idnr="+data['idnr']+ "&nipnr="+data['nipnr']+ "&city="+data['city']+ "&street="+data['street']+ "&housenr="+data['housenr'] 
+		+ "&postalcode="+data['postalcode']+ "&item="+item;
 		window.location.href = url;
-		//window.location.href="dock.html";
 	}
 	
 }
