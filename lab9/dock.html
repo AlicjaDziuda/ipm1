@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customer Manager</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+   <div>
+       <h2> Dane klienta: </h2>
+        <div id="dane"> </div>
+       <h2>Zakup: </h2>
+       <div id="zakup"> </div>
+   </div>
+   <span id = "lblData" ></span>
+<script type="text/javascript">
+    window.onload = function(){
+        var queryString = new Array();
+        result = "";
+        item = "";
+        const queryStringa = window.location.search;
+        console.log(queryStringa);
+        if (queryString.length == 0) {
+            if (window.location.search.split('?').length > 1) {
+                var params = window.location.search.split('?')[1].split('&');
+                for (var i = 0; i < params.length; i++) {
+                    var key = params[i].split('=')[0];
+                    var value = decodeURIComponent(params[i].split('=')[1]);
+                    queryString[key] = value;
+                    if(i==10){
+                        item = value;
+                        break;
+                    }
+                    console.log(i);
+                    result = result + value + " ";
+                    result = result + "<br>";
+                    
+                }
+            }
+            console.log(result);
+            $("#dane").replaceWith(result);
+            $("#zakup").replaceWith(item);
+        }
+    }
+
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
